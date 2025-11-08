@@ -4,24 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simon Says Game</title>
-    <Link rel="stylesheet"  href="style3.css" >
+    <link rel="stylesheet"  href="style.css" />
 </head>
 <body>
-    <h1>Simon Says Game</h1>
-    <h2>Press any key to start the Game</h2>
+    <div class="game-card">
+        <h1>Simon Says</h1>
+        <div class="level-row">
+            <h2 id="status">Press any key or Start to play</h2>
+            <div class="level-badge">Score: <span id="level">0</span></div>
+        </div>
 
-    <div class="btn-container">
-        <div class="line-one">
-             <div class="btn red"  type="button" id="red">1</div>
-             <div class="btn yellow"  type="button"  id="yellow">2</div>
+        <div class="btn-container">
+            <div class="line-one">
+                 <div class="btn red"  type="button" id="red"><span class="btn-letter">A</span></div>
+                 <div class="btn yellow"  type="button"  id="yellow"><span class="btn-letter">S</span></div>
+            </div>
+            <div class="line-two">
+                <div class="btn green"   type="button"  id="green"><span class="btn-letter">D</span></div>
+                <div class="btn purple"  type="button"  id="purple"><span class="btn-letter">F</span></div>
+            </div>
         </div>
-        <div class="line-two">
-            <div class="btn green"   type="button"  id="green">3</div>
-            <div class="btn purple"  type="button"  id="purple">4</div>
-        </div>
-        
+
+        <p class="hint">Use A / S / D / F or click the buttons</p>
     </div>
 
-    <script  src="app3.js"></script>
+    <div id="overlay" class="overlay">
+        <div class="overlay-card">
+            <h2 id="overlay-message">Ready to play?</h2>
+            <button id="start-btn" class="start-btn">Start</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
 </body>
 </html>
