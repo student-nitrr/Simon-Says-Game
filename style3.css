@@ -1,13 +1,71 @@
+body {@import url('https://fonts.googleapis.com/css2?family=Righteous&family=Quicksand:wght@400;700&display=swap');
+
 body {
      text-align: center;
+     min-height: 100vh;
+     margin: 0;
+    background: radial-gradient( circle at 10% 10%, #7bdff6 0%, #5ad3e6 10%, #3aa7d1 35%, #0b7285 100% );
+    background-size: cover;
+     color: white;
+     font-family: 'Quicksand', sans-serif;
+     padding: 20px;
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+h1 {
+    font-family: 'Righteous', cursive;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+    font-size: 4rem;
+    margin-bottom: 15px;
+    letter-spacing: 3px;
+    color: #ffffff;
+}
+
+h2 {
+    color: #f8f8f8;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    margin-bottom: 30px;
+    font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
 }
 
 .btn {
-     height: 100px;
-     width: 100px;
-     border-radius: 20%;
-     border: 5px solid black;
-     margin: 2rem;
+     height: 130px;
+     width: 130px;
+     border-radius: 25%;
+     border: 6px solid rgba(255, 255, 255, 0.9);
+     margin: 1.5rem;
+     cursor: pointer;
+     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+     position: relative;
+     overflow: hidden;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+}
+
+.btn-letter {
+    font-family: 'Righteous', cursive;
+    font-size: 2.5rem;
+    color: rgba(255, 255, 255, 0.8);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    position: absolute;
+}
+
+.btn:hover {
+    transform: scale(1.05) translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+.btn:active {
+    transform: scale(0.98);
 }
 
 .btn-container {
@@ -16,26 +74,111 @@ body {
 }
 
 .yellow {
-    background-color: #f99b45;
+    background-color: #FFD700;
 }
 
 .red {
-    background-color: #d95980;
+    background-color: #FF0000;
 }
 
 .green {
-    background-color: #63aac0;
+    background-color: #00FF00;
 }
 
 .purple {
-    background-color: #819ff9;
+    background-color: #800080;
 }
 
-.flash{
-    background-color: white;
 
+.flash {
+    filter: brightness(1.6) saturate(1.2);
+    transform: scale(1.05);
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.9);
+    transition: all 150ms ease;
 }
 
-.userflash{
-    background-color: green;
+.userflash {
+    outline: 3px solid rgba(255, 255, 255, 0.6);
+    transform: scale(0.98);
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.6);
+}
+
+@keyframes gameStart {
+    from { transform: scale(0.95); }
+    to { transform: scale(1); }
+}
+
+.btn-container {
+    animation: gameStart 1s ease-out;
+}
+
+.game-card {
+    width: min(720px, 95%);
+    margin: 3rem auto;
+    background: rgba(255,255,255,0.06);
+    border-radius: 16px;
+    padding: 30px 24px;
+    box-shadow: 0 10px 40px rgba(10,10,10,0.3);
+    backdrop-filter: blur(6px) saturate(1.1);
+}
+
+.level-row {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap: 1rem;
+}
+
+.level-badge {
+    background: rgba(255,255,255,0.08);
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-weight:700;
+    color: #fff;
+}
+
+.hint {
+    margin-top: 10px;
+    color: rgba(255,255,255,0.85);
+}
+
+/* Overlay / Start */
+.overlay {
+    position: fixed;
+    inset: 0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background: linear-gradient(rgba(3,10,18,0.6), rgba(3,10,18,0.6));
+    z-index: 60;
+}
+
+.overlay-card {
+    background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.04));
+    padding: 26px 28px;
+    border-radius: 12px;
+    text-align:center;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+}
+
+.start-btn {
+    background: linear-gradient(90deg,#ffb86b,#ff7aa2);
+    border: none;
+    color: #111;
+    font-weight: 800;
+    padding: 10px 22px;
+    border-radius: 999px;
+    cursor: pointer;
+    margin-top: 12px;
+    box-shadow: 0 8px 30px rgba(255,120,140,0.18);
+    transition: transform 160ms ease;
+}
+
+.start-btn:hover { transform: translateY(-4px) scale(1.02); }
+
+@media (max-width:520px){
+    .btn { height: 96px; width: 96px; }
+    .btn-letter { font-size: 1.6rem; }
+    h1 { font-size: 2.4rem; }
+}
 }
